@@ -2,7 +2,11 @@
 # Author: Sébastien Combéfis
 # Version: February 2, 2016
 
+from math import *
+
 def fact(n):
+    if n < 0:
+        raise ValueError
     result = 1
     for i in range(1, n+1):
         result *= i
@@ -16,9 +20,9 @@ def roots(a, b, c):
     if discriminant < 0:
         return ()
     elif discriminant == 0:
-        return ( (-b + math.sqrt(discriminant)) / (2 * a) )
+        return ( (-b + sqrt(discriminant)) / (2 * a) )
     else:
-        return ( (-b + math.sqrt(discriminant)) / (2 * a), (-b - math.sqrt(discriminant)) / (2 * a) )
+        return ( (-b + sqrt(discriminant)) / (2 * a), (-b - sqrt(discriminant)) / (2 * a) )
 
 def integrate(function, lower, upper):
     steps = 100
