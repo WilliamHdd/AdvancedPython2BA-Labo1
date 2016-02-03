@@ -7,17 +7,18 @@ import utils
 
 class TestUtils(unittest.TestCase):
     def test_fact(self):
-        with self.assertRaises(ValueError):
-           utils.fact(-1)
+        self.assertRaises(ValueError, utils.fact, -1)
+        self.assertEqual(utils.fact(0), 1)
+        self.assertEqual(utils.fact(5), 120)
         pass
     
     def test_roots(self):
-        # À compléter...
-        pass
+        self.assertEqual(utils.roots(1, 2, 1), (-1))
+        self.assertEqual(utils.roots(1, 0, 1), ())
+        
     
     def test_integrate(self):
-        assert lower > upper, "Problèmes aux bornes!"
-        pass
+        self.assertAlmostEquals(utils.integrate('x', 0, 1), 0.5)
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestUtils)
